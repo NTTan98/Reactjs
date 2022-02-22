@@ -7,13 +7,6 @@ class Search extends React.Component {
     searchKey: "",
   };
   async componentDidMount() {
-    // fetch("https://swapi.dev/api/people/")
-    //   .then((resp) => resp.json())
-    //   .then((data) => {
-    //     this.setState({
-    //       listItems: data.results,
-    //     });
-    //   });
     let response = await fetch("https://swapi.dev/api/people/");
     let data = await response.json();
     this.setState({
@@ -41,6 +34,7 @@ class Search extends React.Component {
           </div>
           <div className="container__results">
             {this.state.listItems
+              // eslint-disable-next-line array-callback-return
               .filter((item) => {
                 if (this.state.searchKey === "") {
                   return item;
