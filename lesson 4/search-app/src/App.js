@@ -1,9 +1,9 @@
 import React from "react";
-import Search from "./Conponent/search";
+import Quotes from "./Conponent/Quotes/Quotes";
 
 class App extends React.Component {
   render() {
-    return <Search />;
+    return <Quotes />;
   }
 }
 
