@@ -8,6 +8,7 @@
   margin: 100px auto;
   width: 400px;
   background-color: #ff6347;
+  border-radius: 20%;
   color: white;
   display: flex;
   flex-direction: column;
@@ -18,23 +19,6 @@
     display: flex;
     justify-content: space-evenly;
     font-size: 25px;
-
-    // .Left,
-    // .Right {
-    //   text-align: center;
-
-    //   .Icon i {
-    //     font-size: 20px;
-    //     margin: 0 10px;
-    //   }
-    //   .Icon button {
-    //     border: none;
-    //     outline: none;
-    //     background-color: transparent;
-    //     color: #fff;
-    //     cursor: pointer;
-    //   }
-    // }
   }
 
   .Display {
