@@ -1,8 +1,9 @@
 import "./App.css";
-import TomatoApp from "./Components/TomatoTimer/TomatoApp";
+// import TomatoApp from "./Components/TomatoTimer/TomatoApp";
+import FunctionComponent from "./View/FunctionComponent";
 
 function App() {
-  return <TomatoApp />;
+  return <FunctionComponent />;
 }
 
 export default App;
