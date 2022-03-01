@@ -36,7 +36,9 @@ const Search = () => {
   }
   const ArrFilter = data.filter((item) =>
     searchKey
-      ? item.name.last.toLowerCase().includes(searchKey.toLowerCase())
+      ? item.name.last.toLowerCase().includes(searchKey.toLowerCase()) ||
+        item.name.first.toLowerCase().includes(searchKey.toLowerCase()) ||
+        item.name.title.toLowerCase().includes(searchKey.toLowerCase())
       : true
   );
   const placeholderText = `Before Number: ${numberData}`;
