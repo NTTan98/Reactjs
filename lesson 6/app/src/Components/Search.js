@@ -49,7 +49,7 @@ const Search = () => {
         <Form.Control
           type="text"
           id="text__Search"
-          placeholder="Enter key Search (First Name)"
+          placeholder="Enter key Search"
           onChange={handleClickSearch}
         />
         <Form.Control
@@ -63,6 +63,7 @@ const Search = () => {
       <Container>
         <Row>
           {ArrFilter.map((results) => (
+            
             <Col xs={4}>
               <Card style={{ width: "18rem" }}>
                 <Card.Header>Profile</Card.Header>
