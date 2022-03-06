@@ -1,0 +1,15 @@
+.Container__Control {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .Icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    span {
+      margin: 0 10px;
+    }
+  }
+}

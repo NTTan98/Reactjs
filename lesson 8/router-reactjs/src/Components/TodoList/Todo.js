@@ -9,7 +9,7 @@ const Todo = ({ data, deleteData }) => {
   };
 
   return (
-    <div>
+    <div style={{ width: "400px", margin: "0 auto" }}>
       {data.map((data) => (
         <Button block size={"large"} key={data.name}>
           <span>{data.name}</span>

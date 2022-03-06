@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Container__Timer {
+  margin: 10px auto;
+  width: 400px;
+  background-color: #ff6347;
+  border-radius: 20%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .Control__Set {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 25px;
+  }
+
+  .Display {
+    border: 2px solid #008000;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: #adff2f;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .Display__Text {
+      font-weight: bold;
+      font-size: 30px;
+      margin-top: 25px;
+      margin-bottom: 30px;
+    }
+    .Counter {
+      font-size: 30px;
+    }
+  }
+  .Control__Btn {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
+    border: none;
+    button {
+      border: none;
+      outline: none;
+      background-color: #000;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      i {
+        font-size: 30px;
+        color: #adff2f;
+      }
+    }
+  }
+}

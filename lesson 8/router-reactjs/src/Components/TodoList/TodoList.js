@@ -18,7 +18,7 @@ const TodoList = () => {
     setData(currentData);
   };
   return (
-    <div>
+    <div style={{ width: "400px", margin: "0 auto" }}>
       <h1>TodoList</h1>
       <Input
         value={input}
