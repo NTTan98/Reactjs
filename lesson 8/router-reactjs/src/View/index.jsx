@@ -11,40 +11,57 @@ import SearchAdvanced from "../Components/SearchAdvanced/SearchAdvanced";
 import TodoList from "../Components/TodoList/TodoList";
 
 const Index = () => {
+  const ViewData = [
+    {
+      element: <Home />,
+      path: "/",
+      label: "Home",
+    },
+    {
+      element: <Calc />,
+      path: "/calc",
+      label: "Calculator",
+    },
+    {
+      element: <Drum />,
+      path: "/drum",
+      label: "Drum",
+    },
+    {
+      element: <SearchBasic />,
+      path: "/searchBasic",
+      label: "Search Basic",
+    },
+    {
+      element: <TomatoTimer />,
+      path: "/TomatoTimer",
+      label: "Tomato Timer",
+    },
+    {
+      element: <SearchAdvanced />,
+      path: "/SearchAdvanced",
+      label: "Search Advanced",
+    },
+    {
+      element: <TodoList />,
+      path: "/TodoList",
+      label: "TodoList",
+    },
+  ];
   return (
     <div>
       <BrowserRouter>
         <Menu mode="horizontal">
-          <Menu.Item>
-            <Link to={"/"}>Home</Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to={"/calc"}>Calculator</Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to={"/drum"}>Drum</Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to={"/searchBasic"}>Search Basic</Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to={"/TomatoTimer"}>Tomato Timer</Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to={"/SearchAdvanced"}>Search Advanced</Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to={"/TodoList"}>TodoList</Link>
-          </Menu.Item>
+          {ViewData.map((item) => (
+            <Menu.Item>
+              <Link to={item.path}>{item.label}</Link>
+            </Menu.Item>
+          ))}
         </Menu>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/calc" element={<Calc />} />
-          <Route path="/drum" element={<Drum />} />
-          <Route path="/searchBasic" element={<SearchBasic />} />
-          <Route path="/TomatoTimer" element={<TomatoTimer />} />
-          <Route path="/SearchAdvanced" element={<SearchAdvanced />} />
-          <Route path="/TodoList" element={<TodoList />} />
+          {ViewData.map((item) => (
+            <Route path={item.path} element={item.element} />
+          ))}
         </Routes>
       </BrowserRouter>
     </div>
