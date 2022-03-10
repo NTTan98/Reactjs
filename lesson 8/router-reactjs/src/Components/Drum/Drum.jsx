@@ -70,11 +70,23 @@ class Drum extends React.Component {
     const audio = new Audio(event.currentTarget.getAttribute("label"));
     audio.play();
   };
-
+  handleOnKeyPress = (e) => {
+    const keyIp = e.key;
+    for (let i = 0; i <= this.data.length - 1; i++) {
+      if (keyIp.toUpperCase() === this.data[i].keyTrigger) {
+        const audio = new Audio(this.data[i].url);
+        audio.play();
+        console.log(keyIp);
+      }
+    }
+  };
   render() {
     return (
       <div className="container__Drum">
-        <div className="drum__left">
+        <div
+          className="drum__left"
+          onKeyPress={this.handleOnKeyPress.bind(this)}
+        >
           {this.data.map((keys) => (
             <button
               key={keys.keyCode}

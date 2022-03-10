@@ -8,11 +8,21 @@ class Calc extends React.Component {
     calculatorValue: "",
     totalValue: "",
   };
-
+  digitals = ["7", "8", "9", "4", "5", "6", "1", "2", "3"];
+  operators = ["/", "*", "-", "+"];
   insertNumber = (newNum) => {
     this.setState({
       calculatorValue: this.state.calculatorValue + newNum,
     });
+  };
+
+  insertOperator = (operator) => {
+    const realCalculatorValue = this.state.calculatorValue + operator;
+    if (this.state.calculatorValue) {
+      this.setState({
+        calculatorValue: realCalculatorValue,
+      });
+    }
   };
 
   totalMath = (e) => {
@@ -24,13 +34,18 @@ class Calc extends React.Component {
   };
 
   deleteMath = (e) => {
+    const deleteNumber = this.state.calculatorValue;
+    this.setState({
+      calculatorValue: deleteNumber.slice(0, -1),
+    });
+  };
+  resetMath = () => {
     this.setState({
       calculatorValue: "",
       totalValue: "",
     });
   };
 
-  digitals = ["7", "8", "9", "4", "5", "6", "1", "2", "3"];
   render() {
     return (
       <div className="Calc">
@@ -39,15 +54,19 @@ class Calc extends React.Component {
           {this.state.calculatorValue || "0"}
         </div>
         <div className="operators">
-          <ButtonComponent onClick={this.insertNumber} label={"/"} key={"/"} />
-          <ButtonComponent onClick={this.insertNumber} label={"*"} key={"*"} />
-          <ButtonComponent onClick={this.insertNumber} label={"-"} key={"-"} />
-          <ButtonComponent onClick={this.insertNumber} label={"+"} key={"+"} />
+          {this.operators.map((number) => (
+            <ButtonComponent
+              onClick={this.insertOperator}
+              label={number}
+              key={number}
+            />
+          ))}
           <ButtonComponent
             onClick={this.deleteMath}
             label={"DEL"}
             key={"DEL"}
           />
+          <ButtonComponent onClick={this.resetMath} label={"AC"} key={"AC"} />
         </div>
         <div className="bottom">
           {this.digitals.map((number) => (
