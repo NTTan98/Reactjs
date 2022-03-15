@@ -1,20 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Form, Input, Button, Checkbox } from "antd";
 import "antd/dist/antd.css";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./style.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
+  const [isToken, setToken] = useState(false);
+  let navigate = useNavigate();
   const handleFinish = (value) => {
     axios
       .post("https://todo-nodemy.herokuapp.com/user/login", {
         username: value.username,
         password: value.password,
       })
-      .then((res) => console.log("Posting data", res))
+      .then((res) => {
+        const Token = res.data.token;
+        if (Token) {
+          setToken(true);
+        } else {
+          setToken(false);
+        }
+        localStorage.setItem("Token", Token);
+        console.log("Posting data");
+      })
       .catch((err) => console.log(err));
   };
+  useEffect(() => {
+    if (isToken) {
+      console.log(isToken);
+      navigate("/home");
+    } else {
+      navigate("/");
+    }
+  }, [isToken]);
+
   return (
     <div className="Login__Form">
       <h2>Login</h2>
